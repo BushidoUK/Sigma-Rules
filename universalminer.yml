@@ -1,0 +1,22 @@
+title: Match UniversalMiner Filenames
+id: matching_specific_filenames
+status: experimental
+description: |
+  Detects specific filenames that start with "x" followed by 6 digits and end with ".bat", ".vbs", or ".dat" extensions.
+author: Will Thomas (@BushidoToken)
+date: 2024-11-27
+references:
+  - https://mrl.cert.gov.az/az/articles/view/125
+tags:
+  - attack.persistence
+logsource:
+  category: file
+  product: windows
+detection:
+  selection:
+    filename:
+      - '\x[0-9]{6}\.bat'
+      - '\x[0-9]{6}\.vbs'
+      - '\x[0-9]{6}\.dat'
+  condition: selection
+level: medium
