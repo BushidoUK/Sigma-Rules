@@ -1,0 +1,20 @@
+title: Match RedTail Filenames
+id: matching_specific_filenames
+status: experimental
+description: |
+  Detects specific filenames that are related to RedTail cryptomining bot 
+author: Will Thomas (@BushidoToken)
+date: 2025-11-27
+references:
+  - https://x.com/BushidoToken/status/1987146925771026461
+tags:
+  - attack.persistence
+logsource:
+  category: file
+  product: unix
+detection:
+  selection:
+    filename:
+      - 'redtail.sh'
+  condition: selection
+level: medium
