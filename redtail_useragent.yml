@@ -1,0 +1,18 @@
+title: RedTail User Agent
+description: Detects RedTail bot's user agent string
+author: Will Thomas (BushidoToken)
+date: 2025-11-28
+tags:
+    - attack.command-and-control
+    - attack.t1071.001
+logsource:
+    category: proxy
+detection:
+    selection:
+        c-useragent|startswith:
+            - 'user-agent'  # User-Agent: User-Agent:
+            - 'libredtail-http' # RedTail Indicator
+    condition: selection
+falsepositives:
+    - Unknown
+level: high
